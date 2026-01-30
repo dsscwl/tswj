@@ -1,0 +1,20 @@
+# 禁止直接访问
+Options -Indexes
+
+# 重写规则
+RewriteEngine On
+
+# 防止直接访问敏感文件
+<FilesMatch "\.(sql|ini|log|sh|bak|backup)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# 设置默认页面
+DirectoryIndex index.php
+
+# 限制某些IP访问（可选）
+# Order deny,allow
+# Deny from all
+# Allow from 192.168.1.
+# Allow from 127.0.0.1
